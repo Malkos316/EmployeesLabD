@@ -23,6 +23,8 @@ namespace Employees.Entities
         protected string department;
 
         //Constructor - A special method created inside of a class that gets called when you Create an object of that particular class
+
+        public Employee() { }
         public Employee(string id, string name, string address, string phone, long sin, string dateofbirth, string department)
         {
             this.id = id;
