@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Employee.cs" />
-    <Compile Include="Entities\Wages.cs" />
+    <Compile Include="Entities\Waged.cs" />
     <Compile Include="Entities\PartTime.cs" />
     <Compile Include="Entities\Salaried.cs" />
     <Compile Include="Program.cs" />

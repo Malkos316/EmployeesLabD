@@ -7,33 +7,21 @@ using System.Threading.Tasks;
 namespace Employees.Entities
 {
     /// <summary>
-    /// Represents a Salaried employee
+    /// Represents a salaried employee
     /// </summary>
-    /// <remarks>Author: Nick Hamnett</remarks>
-    /// <remarks>Date: January 27, 2023</remarks>
+    /// <remarks>Author:Markus Luthi</remarks>
+    /// <remarks>Date:Feb 23rd, 2023</remarks>
     internal class Salaried : Employee
     {
 		// TODO: Add remaining fields, properties, and constructor parameters for salaried employee.
+
+        //Fields
         private double salary;
 
+        //Properties
         public double Salary { get {  return salary; } }
 
-        // This is how ID, name, and address would be set if the fields in the Employee class are private and it couldn't be modified.
-        /*public Salaried(string id, string name, string address, double salary) : base(id, name, address)
-        {
-            this.id = id;
-            this.name = name;
-            this.address = address;
-            this.salary = salary;
-        }*/
-
-        /// <summary>
-        /// User-defined constructor
-        /// </summary>
-        /// <param name="id">Employee ID</param>
-        /// <param name="name">Name of employee</param>
-        /// <param name="address">Employee's address</param>
-        /// <param name="salary">Employee's salary</param>
+        //Construtor
         public Salaried(string id, string name, string address, double salary)
         {
             // Set in instance of inherited Employee
@@ -44,5 +32,9 @@ namespace Employees.Entities
             this.salary = salary;
         }
 
+        public double CalcWeeklyPay()
+        {
+            return salary;
+        }
     }
 }

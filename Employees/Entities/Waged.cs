@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace Employees.Entities
 {
     /// <summary>
-    /// Represents a part-time employee
+    /// Represents a waged employee
     /// </summary>
     /// <remarks>Author:Markus Luthi</remarks>
     /// <remarks>Date:Feb 23rd, 2023</remarks>
-    internal class PartTime : Employee
+    internal class Waged : Employee
     {
-		// TODO: Add remaining fields, properties, and constructor parameters for part-time employee.
+		// TODO: Add remaining fields, properties, and constructor parameters for waged employee.
 
         //Fields
         private double rate;
@@ -24,7 +24,7 @@ namespace Employees.Entities
         public double Hours { get { return hours; } }
 
         //Constructor
-        public PartTime(string id, string name, string address, double rate, double hours)
+        public Waged(string id, string name, string address, double rate, double hours)
         {
             // Set in instance of inherited Employee
             this.id = id;
@@ -34,13 +34,21 @@ namespace Employees.Entities
             this.rate = rate;
             this.hours = hours;
         }
-
         public double CalcWeeklyPay()
         {
             double weeklyPay = 0;
+            if (hours < 40)
+            {
+                weeklyPay = hours * rate;
+            }
+            else
+            {
+                double overtimeHours = hours - 40;
+                double overtimePay = overtimeHours * (rate * 1.5);
+                weeklyPay = 40 * rate;
+                weeklyPay += overtimeHours;
 
-            weeklyPay = rate* hours;
-
+            }
             return weeklyPay;
         }
     }

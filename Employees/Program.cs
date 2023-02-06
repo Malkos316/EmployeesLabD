@@ -11,23 +11,23 @@ namespace Employees
     /// <summary>
     /// CPRG211 - Lab Inheritance
     /// </summary>
-    /// <remarks>Author: </remarks>
-    /// <remarks>Date: </remarks>
+    /// <remarks>Author:Markus Luthi </remarks>
+    /// <remarks>Date:Feb 4th, 2023 </remarks>
     internal class Program
     {
         static void Main(string[] args)
         {
             // Create list that holds Employee instances
-            List<Employee> employees = new List<Employee>();
+            List<Employee> employeeList = new List<Employee>();
 
             // Must be a relative path
-            string path = "employees.txt";
+            string filePath = "employees.txt";
 
             // Converts lines in file into an array of strings
-            string[] lines = File.ReadAllLines(path);
+            string[] employeeFilelines = File.ReadAllLines(filePath);
 
             // Loop through each line
-            foreach (string line in lines)
+            foreach (string line in employeeFilelines)
             {
                 // Split line into parts or cells.
                 string[] cells = line.Split(':');
@@ -36,6 +36,10 @@ namespace Employees
                 string id = cells[0];
                 string name = cells[1];
                 string address = cells[2];
+                string phone = cells[3];
+                string sin = cells[4];
+                string dateofbirth = cells[5];
+                string department = cells[6];
 				
 				// TODO: Get remaining employee info from cells
 
@@ -58,7 +62,7 @@ namespace Employees
                     Salaried salaried = new Salaried(id, name, address, salaryDouble);
 
                     // Add to list of employees.
-                    employees.Add(salaried);
+                    employeeList.Add(salaried);
                 }
                 else if (firstDigitInt >= 5 && firstDigitInt <= 7)
                 {
@@ -71,10 +75,10 @@ namespace Employees
                     int hoursInt = int.Parse(hours);
 
                     // Create Wages instance
-                    Waged wages = new Waged(id,name, address, rateDouble);
+                    Waged wages = new Waged(id, name, address, rateDouble, hoursInt);
 
                     // Add to list of employees.
-                    employees.Add(wages);
+                    employeeList.Add(wages);
                 }
                 else if (firstDigitInt >= 8 && firstDigitInt <= 9)
                 {
@@ -84,21 +88,15 @@ namespace Employees
 
                     // Convert rate and hours from string to double
                     double rateDouble = double.Parse(rate);
-                    int hoursInt = int.Parse(hours);
+                    double hoursDouble = double.Parse(hours);
 
                     // Create PartTime instance
-                    PartTime partTime = new PartTime(id, name, address, rateDouble);
+                    PartTime partTime = new PartTime(id, name, address, rateDouble, hoursDouble);
 
                     // Add to list of employees
-                    employees.Add(partTime);
+                    employeeList.Add(partTime);
 
                 }
-
-                /*if (firstDigit == "0" || firstDigit == "1" || firstDigit == "2" || firstDigit == "3" || firstDigit == "4")
-                {
-
-                }*/
-
                 /**
                  * TODO:
                  *  - Determine average weekly pay of all employees.
@@ -106,10 +104,19 @@ namespace Employees
                  *  - Determine lowest paid salaried employee.
                  *  - Determine percentage of employees that are salaried, waged, and part-time.
                  */
+                double weeklyPaySum = 0;
 
                 // It's okay to use loop through employees multiple times.
-                foreach (Employee employee in employees) { 
-                } 
+                foreach (Employee employee in employeeList) 
+                { 
+                    double weeklPay = employee.CalcWeeklyPay();
+
+                    weeklyPaySum += weeklPay;
+                }
+                double averageWeeklyPay = weeklyPaySum / employeeList.Count;
+
+                Console.WriteLine("Average weely pay: " + averageWeeklyPay);
+                Console.ReadLine();
             }
         }
     }
