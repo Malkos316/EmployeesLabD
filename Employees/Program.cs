@@ -109,9 +109,9 @@ namespace Employees
                 // It's okay to use loop through employees multiple times.
                 foreach (Employee employee in employeeList) 
                 { 
-                    double weeklPay = employee.CalcWeeklyPay();
+                    double weeklyPay = employee.CalcWeeklyPay();
 
-                    weeklyPaySum += weeklPay;
+                    weeklyPaySum += weeklyPay;
                 }
                 double averageWeeklyPay = weeklyPaySum / employeeList.Count;
 
