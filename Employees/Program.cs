@@ -104,20 +104,22 @@ namespace Employees
                  *  - Determine lowest paid salaried employee.
                  *  - Determine percentage of employees that are salaried, waged, and part-time.
                  */
-                double weeklyPaySum = 0;
-
-                // It's okay to use loop through employees multiple times.
-                foreach (Employee employee in employeeList) 
-                { 
-                    double weeklyPay = employee.CalcWeeklyPay();
-
-                    weeklyPaySum += weeklyPay;
-                }
-                double averageWeeklyPay = weeklyPaySum / employeeList.Count;
-
-                Console.WriteLine("Average weely pay: " + averageWeeklyPay);
-                Console.ReadLine();
+                
             }
+            double weeklyPaySum = 0;
+
+            // It's okay to use loop through employees multiple times.
+            foreach (Employee employee in employeeList)
+            {
+                double weeklyPay = employee.CalcWeeklyPay();
+
+                weeklyPaySum += weeklyPay;
+            }
+            double averageWeeklyPay = weeklyPaySum / employeeList.Count;
+
+            Console.WriteLine("Average weely pay: " + averageWeeklyPay);
+            Console.WriteLine(weeklyPaySum);
+            Console.ReadLine();
         }
     }
 }

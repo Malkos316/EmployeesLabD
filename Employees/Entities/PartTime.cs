@@ -35,7 +35,7 @@ namespace Employees.Entities
             this.hours = hours;
         }
 
-        public double CalcWeeklyPay()
+        public override double CalcWeeklyPay()
         {
             double weeklyPay = 0;
 

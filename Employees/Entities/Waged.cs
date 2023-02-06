@@ -34,7 +34,7 @@ namespace Employees.Entities
             this.rate = rate;
             this.hours = hours;
         }
-        public double CalcWeeklyPay()
+        public override double CalcWeeklyPay()
         {
             double weeklyPay = 0;
             if (hours < 40)

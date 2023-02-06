@@ -34,7 +34,7 @@ namespace Employees.Entities
             this.dateofbirth = dateofbirth;    
             this.department = department;
         }
-        public double CalcWeeklyPay()
+        public virtual double CalcWeeklyPay()
         {
             return 0;
         }

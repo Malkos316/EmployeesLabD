@@ -32,7 +32,7 @@ namespace Employees.Entities
             this.salary = salary;
         }
 
-        public double CalcWeeklyPay()
+        public override double CalcWeeklyPay()
         {
             return salary;
         }
