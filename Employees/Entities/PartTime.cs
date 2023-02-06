@@ -39,7 +39,7 @@ namespace Employees.Entities
         {
             double weeklyPay = 0;
 
-            weeklyPay = rate* hours;
+            weeklyPay += this.rate * this.hours;
 
             return weeklyPay;
         }

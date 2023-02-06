@@ -34,7 +34,7 @@ namespace Employees.Entities
 
         public override double CalcWeeklyPay()
         {
-            return salary;
+            return this.salary;
         }
     }
 }

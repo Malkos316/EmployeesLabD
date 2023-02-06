@@ -117,8 +117,7 @@ namespace Employees
             }
             double averageWeeklyPay = weeklyPaySum / employeeList.Count;
 
-            Console.WriteLine("Average weely pay: " + averageWeeklyPay);
-            Console.WriteLine(weeklyPaySum);
+            Console.WriteLine("Average weekly pay: " + averageWeeklyPay);
             Console.ReadLine();
         }
     }

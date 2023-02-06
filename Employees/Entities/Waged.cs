@@ -37,15 +37,18 @@ namespace Employees.Entities
         public override double CalcWeeklyPay()
         {
             double weeklyPay = 0;
-            if (hours < 40)
+            if (this.hours < 40)
             {
-                weeklyPay = hours * rate;
+                weeklyPay = this.hours * this.rate;
             }
             else
             {
-                double overtimeHours = hours - 40;
-                double overtimePay = overtimeHours * (rate * 1.5);
-                weeklyPay = 40 * rate;
+                double overtimeHours = this.hours - 40;
+
+                weeklyPay = 40 * this.rate;
+
+                double overtimePay = overtimeHours * (this.rate * 1.5);
+                
                 weeklyPay += overtimeHours;
 
             }
